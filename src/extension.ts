@@ -1,7 +1,8 @@
-// src/extension.ts
 import { commands, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument, window, workspace } from 'vscode';
 
 export function activate(context: ExtensionContext) {
+  console.log('Activating File Stats extension');
+
   const statusBar = window.createStatusBarItem(StatusBarAlignment.Right, 100);
   statusBar.show();
 
@@ -19,7 +20,7 @@ export function activate(context: ExtensionContext) {
     const fileSize = await getFileSize(doc.fileName);
     const formattedFileSize = formatFileSize(fileSize);
 
-    const statusBarText = `File Lines: ${lines} Words: ${words} Sel: ${selectedChars} (${selections.length} selections)`;
+    const statusBarText = `➜ L: ${lines}  |  W: ${words}  |  B: ${formattedFileSize}  |  Sel: ${selectedChars} [${selections.length} selections]`;
     statusBar.text = statusBarText;
     statusBar.tooltip = `File Size: ${formattedFileSize}\nLines: ${lines}\nWords: ${words}\nSelected Characters: ${selectedChars}`;
   };
@@ -43,11 +44,22 @@ export function activate(context: ExtensionContext) {
 
   context.subscriptions.push(statusBar);
 
+  let isStatusBarVisible = true;
+
   context.subscriptions.push(
     commands.registerCommand('file-stats.toggle', () => {
-      statusBar.hide();
+      if (isStatusBarVisible) {
+        statusBar.hide();
+        isStatusBarVisible = false;
+      } else {
+        statusBar.show();
+        isStatusBarVisible = true;
+      }
     })
   );
+  if (window.activeTextEditor) {
+    updateStatusBar();
+  }
 }
 
 export function deactivate() { }
