@@ -6,10 +6,11 @@ A Visual Studio Code extension that displays file statistics in the status bar.
 
 ## **Features**
 
--   Displays the number of lines, words, and bytes in the current file
+-   Displays the number of lines, words, and characters
 -   Displays the number of selected characters and the number of selections
 -   Displays the file size in a human-readable format (e.g., KB, MB, GB)
 -   Toggle the visibility of the status bar item using the "Toggle File Stats" command
+-   Jump to line in the active text editor by clicking on the status bar item or using the "Jump to Line" command
 
 ## Screenshots
 
@@ -33,21 +34,15 @@ A Visual Studio Code extension that displays file statistics in the status bar.
 ## **Commands**
 
 -   `file-stats.toggle`: Toggle the visibility of the status bar item.
+-   `file-stats.jumpToLine`: Jump to a line in the active text editor.
 
 ## Known Issues
 
--   **Performance**: The webview may experience performance issues with very complex or resource-intensive web pages.
--   **Limited Browser Features**: This is not a full-fledged browser and lacks some features like extensions or developer tools.
--   **No Session Handling**: Pages with session-handling tokens may not render properly
--   **Bookmarks not saving**: Bookmarks collection is currently not being properly populated
+-   No known issues
 
 ## Roadmap and Future Features
 
--   **Improved Performance**: Optimization to handle more complex web pages smoothly.
--   **Enhanced Bookmarking**: Organize bookmarks into folders and add tags for better management.
--   **Session Management**: Allow users to log in to secure websites and manage tokens and headers
--   **Customizable UI**: Themes and layout customizations for a more personalized experience.
--   **VS Code links integration**: Enable extension to handle vs code links instead of opening system browser
+-   TODO: Add roadmap and future features
 
 Read more from the [changelog](https://github.com/folarinmartins/vscode-file-stats/changelog.md).
 
