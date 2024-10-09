@@ -1,39 +1,17 @@
-# @format
 trigger:
-    - master
-    
+  - master
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: FoodRES/foodres-azure-shared-pipeline
+      ref: refs/heads/master
+
 variables:
-- group: foodrescs-pipelines
+- group: marketplace-variables
 
-pool:
-    vmImage: "ubuntu-latest"
-
-steps:
-    - task: NodeTool@0
-      inputs:
-          versionSpec: "14.x"
-      displayName: "Install Node.js"
-
-    - script: |
-          npm install
-          npm run compile
-      displayName: "npm install and compile"
-
-    - script: |
-          npm install -g vsce
-      displayName: "Install vsce"
-
-    - script: |
-          vsce package
-      displayName: "Package extension"
-
-    - task: PublishPipelineArtifact@1
-      inputs:
-          targetPath: "$(System.DefaultWorkingDirectory)/*.vsix"
-          artifact: "vsix"
-          publishLocation: "pipeline"
-
-    - script: |
-          vsce publish -p $(MARKETPLACE_PAT)
-      displayName: "Publish to Marketplace"
-      condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
+extends:
+  template: vscode-extension-pipeline.yml@templates
+  parameters:
+    publishToMarketplace: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
