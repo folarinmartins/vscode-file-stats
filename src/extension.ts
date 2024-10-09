@@ -1,9 +1,9 @@
-import { commands, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument, window, workspace } from 'vscode';
-
+import { commands, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument, window, workspace, Selection, TextEditorRevealType } from 'vscode';
 export function activate(context: ExtensionContext) {
   console.log('Activating File Stats extension');
 
   const statusBar = window.createStatusBarItem(StatusBarAlignment.Right, 100);
+  statusBar.command = 'file-stats.jumpToLine';
   statusBar.show();
 
   const updateStatusBar = async () => {
@@ -60,9 +60,44 @@ export function activate(context: ExtensionContext) {
       }
     })
   );
+
+  context.subscriptions.push(
+    commands.registerCommand('file-stats.jumpToLine', jumpToLine)
+  );
   if (window.activeTextEditor) {
     updateStatusBar();
   }
 }
+const jumpToLine = async () => {
+  const editor = window.activeTextEditor;
+  if (!editor) {
+    window.showErrorMessage('No active text editor');
+    return;
+  }
 
+  const lineCount = editor.document.lineCount;
+  const input = await window.showInputBox({
+    prompt: `Enter a line number (1-${lineCount})`,
+    validateInput: (value) => {
+      const num = parseInt(value);
+      if (isNaN(num) || num < 1 || num > lineCount) {
+        return `Please enter a number between 1 and ${lineCount}`;
+      }
+      return null;
+    }
+  });
+
+  if (input === undefined) {
+    return; // User cancelled the input
+  }
+
+  const lineNumber = parseInt(input) - 1; // Convert to 0-based index
+  const line = editor.document.lineAt(lineNumber);
+
+  // Move cursor to the beginning of the specified line
+  editor.selection = new Selection(lineNumber, 0, lineNumber, 0);
+
+  // Reveal the line in the editor
+  editor.revealRange(line.range, TextEditorRevealType.InCenter);
+};
 export function deactivate() { }

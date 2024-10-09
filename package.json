@@ -26,6 +26,10 @@
       {
         "command": "file-stats.toggle",
         "title": "Toggle File Stats"
+      },
+      {
+        "command": "file-stats.jumpToLine",
+        "title": "Jump to Line"
       }
     ]
   },
