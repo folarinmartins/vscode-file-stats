@@ -16,3 +16,11 @@ extends:
   template: vscode-extension-pipeline.yml@templates
   parameters:
     publishToMarketplace: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+    
+
+# jobs:
+#   - template: vscode-extension-pipeline.yml@templates
+#     parameters:
+#       ZAF: true
+#       PKS: false
+#       QUARKUS: false
