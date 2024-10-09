@@ -1,8 +1,9 @@
 {
-  "name": "vscode-file-stats",
-  "displayName": "vscode-file-stats",
+  "name": "mfolarin-vscode-file-stats",
+  "displayName": "VS Code File Stats",
   "description": "VS Code extension for current file stats",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "mfolarin",
   "engines": {
     "vscode": "^1.94.0"
   },
@@ -34,6 +35,21 @@
     "lint": "eslint src",
     "test": "vscode-test"
   },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/folarinmartins/vscode-file-stats.git"
+  },
+  "bugs": {
+    "url": "https://github.com/folarinmartins/vscode-file-stats/issues"
+  },
+  "homepage": "https://github.com/folarinmartins/vscode-file-stats#readme",
+  "license": "MIT",
   "devDependencies": {
     "@types/vscode": "^1.94.0",
     "@types/mocha": "^10.0.8",
