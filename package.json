@@ -29,6 +29,8 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
+    "build": "vsce package",
+    "package": "vsce package",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
@@ -50,6 +52,9 @@
   },
   "homepage": "https://github.com/folarinmartins/vscode-file-stats#readme",
   "license": "MIT",
+  "dependencies": {
+    "vsce": "^1.84.0"
+  },
   "devDependencies": {
     "@types/vscode": "^1.94.0",
     "@types/mocha": "^10.0.8",

@@ -1,0 +1,42 @@
+# @format
+
+trigger:
+    - master
+
+pool:
+    vmImage: "ubuntu-latest"
+
+steps:
+    - task: NodeTool@0
+      displayName: "Install Node.js"
+      inputs:
+          versionSpec: "20.x"
+          checkLatest: true
+
+    - task: Npm@1
+      displayName: "Install dependencies"
+      inputs:
+          command: "install"
+
+    - task: Npm@1
+      displayName: "Compile extension"
+      inputs:
+          command: custom
+          customCommand: "run compile"
+
+    - task: Npm@1
+      displayName: "Package extension"
+      inputs:
+          command: custom
+          customCommand: "run vscode:prepublish"
+
+    - task: Bash@3
+      displayName: "Publish extension"
+      inputs:
+          targetType: inline
+          script: |
+              vsce publish
+          workingDirectory: "$(System.DefaultWorkingDirectory)"
+          bashEnvValue: "VSCETOKEN=$(VSCETOKEN)"
+      env:
+          VSCETOKEN: $(VSCETOKEN)
