@@ -1,8 +1,9 @@
 {
   "name": "mfolarin-vscode-file-stats",
   "displayName": "VS Code File Stats",
-  "description": "VS Code extension for current file stats",
-  "version": "1.0.0",
+  "description": "VS Code extension for current file stats in the status bar",
+  "version": "1.0.1",
+  "icon": "resources/makethefuture.png",
   "publisher": "mfolarin",
   "engines": {
     "vscode": "^1.94.0"
