@@ -12,10 +12,17 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "statusBar": [
+      {
+        "id": "file-stats",
+        "alignment": "right",
+        "priority": 100
+      }
+    ],
     "commands": [
       {
-        "command": "vscode-file-stats.helloWorld",
-        "title": "Hello World"
+        "command": "file-stats.toggle",
+        "title": "Toggle File Stats"
       }
     ]
   },
