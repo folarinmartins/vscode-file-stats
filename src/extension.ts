@@ -12,6 +12,7 @@ export function activate(context: ExtensionContext) {
 
     const doc = editor.document;
     const selections = editor.selections;
+    const cursorPosition = editor.selection.active; // Get the active cursor position
 
     const lines = doc.lineCount;
     const words = doc.getText().split(/\s+/).length;
@@ -20,9 +21,10 @@ export function activate(context: ExtensionContext) {
     const fileSize = await getFileSize(doc.fileName);
     const formattedFileSize = formatFileSize(fileSize);
 
-    const statusBarText = `➜ L: ${lines}  |  W: ${words}  |  B: ${formattedFileSize}  |  Sel: ${selectedChars} [${selections.length} selections]`;
+    // Add cursor position to the status bar text
+    const statusBarText = `➜ Ln ${cursorPosition.line + 1} Col ${cursorPosition.character + 1}  |  Lines: ${lines}  |  Words: ${words}  |  Chars: ${bytes}  |  Size: ${formattedFileSize}  |  Sel: ${selectedChars} [${selections.length}]`;
     statusBar.text = statusBarText;
-    statusBar.tooltip = `File Size: ${formattedFileSize}\nLines: ${lines}\nWords: ${words}\nSelected Characters: ${selectedChars}`;
+    statusBar.tooltip = `Cursor: Line ${cursorPosition.line + 1}, Column ${cursorPosition.character + 1}\nFile Size: ${formattedFileSize}\nLines: ${lines}\nWords: ${words}\nSelected Characters: ${selectedChars}`;
   };
 
   const getFileSize = async (fileName: string) => {
@@ -41,6 +43,7 @@ export function activate(context: ExtensionContext) {
   window.onDidChangeActiveTextEditor(updateStatusBar);
   window.onDidChangeTextEditorSelection(updateStatusBar);
   workspace.onDidChangeTextDocument(updateStatusBar);
+  window.onDidChangeTextEditorSelection(updateStatusBar);
 
   context.subscriptions.push(statusBar);
 
