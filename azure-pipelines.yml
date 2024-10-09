@@ -4,9 +4,10 @@ trigger:
 resources:
   repositories:
     - repository: templates
-      type: git
+      type: GitHub
       name: FoodRES/foodres-azure-shared-pipeline
       ref: refs/heads/master
+      endpoint: github
 
 variables:
 - group: marketplace-variables
