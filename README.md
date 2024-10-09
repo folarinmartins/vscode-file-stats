@@ -1,71 +1,71 @@
-# vscode-file-stats README
+<!-- @format -->
 
-This is the README for your extension "vscode-file-stats". After writing up a brief description, we recommend including the following sections.
+# **VS Code File Stats**
 
-## Features
+A Visual Studio Code extension that displays file statistics in the status bar.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## **Features**
 
-For example if there is an image subfolder under your extension project workspace:
+-   Displays the number of lines, words, and bytes in the current file
+-   Displays the number of selected characters and the number of selections
+-   Displays the file size in a human-readable format (e.g., KB, MB, GB)
+-   Toggle the visibility of the status bar item using the "Toggle File Stats" command
 
-\!\[feature X\]\(images/feature-x.png\)
+## Screenshots
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![File Stats in VSCode](images/screenshot1.png)
+![Bookmark & History Management](images/screenshot2.png)
 
-## Requirements
+## **Installation**
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1.  Open the Extensions view in Visual Studio Code by clicking the Extensions icon in the left sidebar or pressing `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
+2.  Search for "File Stats" in the Extensions view.
+3.  Click the Install button to install the extension.
+4.  Reload Visual Studio Code or wait for the extension to activate.
 
-## Extension Settings
+## **Usage**
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1.  Open a file in Visual Studio Code.
+2.  The file statistics will be displayed in the status bar.
+3.  Select some text to see the number of selected characters and the number of selections.
+4.  Use the "Toggle File Stats" command to toggle the visibility of the status bar item.
 
-For example:
+## **Commands**
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+-   `file-stats.toggle`: Toggle the visibility of the status bar item.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+-   **Performance**: The webview may experience performance issues with very complex or resource-intensive web pages.
+-   **Limited Browser Features**: This is not a full-fledged browser and lacks some features like extensions or developer tools.
+-   **No Session Handling**: Pages with session-handling tokens may not render properly
+-   **Bookmarks not saving**: Bookmarks collection is currently not being properly populated
 
-## Release Notes
+## Roadmap and Future Features
 
-Users appreciate release notes as you update your extension.
+-   **Improved Performance**: Optimization to handle more complex web pages smoothly.
+-   **Enhanced Bookmarking**: Organize bookmarks into folders and add tags for better management.
+-   **Session Management**: Allow users to log in to secure websites and manage tokens and headers
+-   **Customizable UI**: Themes and layout customizations for a more personalized experience.
+-   **VS Code links integration**: Enable extension to handle vs code links instead of opening system browser
 
-### 1.0.0
+Read more from the [changelog](https://github.com/folarinmartins/vscode-file-stats/changelog.md).
 
-Initial release of ...
+## Contributing
 
-### 1.0.1
+Contributions are welcome! To contribute:
 
-Fixed issue #.
+1. Fork the repository from [GitHub](https://github.com/folarinmartins/vscode-file-stats).
+2. Create a new branch (`git checkout -b feature/your-feature-name`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/your-feature-name`).
+6. Open a Pull Request.
 
-### 1.1.0
+Please ensure that your code adheres to the coding standards and includes appropriate tests.
 
-Added features X, Y, and Z.
+## License
 
----
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+I hope this sample README file helps! Let me know if you have any questions or need further assistance.

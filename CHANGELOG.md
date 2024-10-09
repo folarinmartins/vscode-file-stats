@@ -1,9 +1,11 @@
+<!-- @format -->
+
 # Change Log
 
 All notable changes to the "vscode-file-stats" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
 ## [Unreleased]
 
-- Initial release
+## [1.0.1] - 2024-10-08
+
+-   [Added] Initial release with basic functionalities including bookmarking, history, multiple tabs, fixed top and bottom panels
