@@ -9,9 +9,6 @@ resources:
       ref: refs/heads/master
       endpoint: github
 
-variables:
-- group: marketplace-variables
-
 extends:
   template: vscode-extension-pipeline.yml@templates
   parameters:
