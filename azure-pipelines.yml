@@ -15,7 +15,7 @@ variables:
 extends:
   template: vscode-extension-pipeline.yml@templates
   parameters:
-    publishToMarketplace: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+    publishToMarketplace: ${{ eq(variables['Build.SourceBranch'], 'refs/heads/master') }}
     
 
 # jobs:
