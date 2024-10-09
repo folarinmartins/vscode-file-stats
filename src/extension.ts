@@ -22,7 +22,7 @@ export function activate(context: ExtensionContext) {
     const formattedFileSize = formatFileSize(fileSize);
 
     // Add cursor position to the status bar text
-    const statusBarText = `➜ Ln ${cursorPosition.line + 1} Col ${cursorPosition.character + 1}  |  Lines: ${lines}  |  Words: ${words}  |  Chars: ${bytes}  |  Size: ${formattedFileSize}  |  Sel: ${selectedChars} [${selections.length}]`;
+    const statusBarText = `➜ Ln ${cursorPosition.line + 1}, Col ${cursorPosition.character + 1}  |  Lines: ${lines}  |  Words: ${words}  |  Chars: ${bytes}  |  Size: ${formattedFileSize}  |  Sel: ${selectedChars} [${selections.length}]`;
     statusBar.text = statusBarText;
     statusBar.tooltip = `Cursor: Line ${cursorPosition.line + 1}, Column ${cursorPosition.character + 1}\nFile Size: ${formattedFileSize}\nLines: ${lines}\nWords: ${words}\nSelected Characters: ${selectedChars}`;
   };
