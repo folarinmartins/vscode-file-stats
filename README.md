@@ -14,8 +14,7 @@ A Visual Studio Code extension that displays file statistics in the status bar.
 
 ## Screenshots
 
-![File Stats in VSCode](images/screenshot1.png)
-![Bookmark & History Management](images/screenshot2.png)
+![File Stats in VSCode](images/screenshot.png)
 
 ## **Installation**
 

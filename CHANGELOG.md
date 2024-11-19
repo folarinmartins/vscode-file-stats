@@ -6,9 +6,13 @@ All notable changes to the "vscode-file-stats" extension will be documented in t
 
 ## [Unreleased]
 
+## [1.0.5] - 2024-11-18
+
+-   [Changed] Added proper product screenshots
+
 ## [1.0.4] - 2024-10-09
 
--   [Changed] Added proper produce screenshots
+-   [Changed] Added proper product screenshots
 
 ## [1.0.1] - 2024-10-08
 
