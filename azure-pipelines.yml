@@ -1,13 +1,13 @@
 # @format
 resources:
-  repositories:
-      - repository: templates
-        type: GitHub
-        name: FoodRES/foodres-azure-shared-pipeline
-        ref: refs/heads/master
-        endpoint: github
+    repositories:
+        - repository: templates
+          type: GitHub
+          name: FoodRES/foodres-platform-cicd-azure
+          ref: refs/heads/master
+          endpoint: github
 
 extends:
-  template: vscode-extension-pipeline.yml@templates
-  parameters:
-      publishToMarketplace: ${{ eq(variables['Build.SourceBranch'], 'refs/heads/release') }}
+    template: vscode-extension-pipeline.yml@templates
+    parameters:
+        publishToMarketplace: ${{ eq(variables['Build.SourceBranch'], 'refs/heads/release') }}
